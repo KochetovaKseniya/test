@@ -91,22 +91,21 @@ hr {
     border-right: 0;
 }
 
-// ::selection {
-//     background: $green; /* Safari */
-//     color: #fff;
-// }
-// ::-moz-selection {
-//     background: $green; /* Safari */
-//     color: #fff;
-// }
+::selection {
+    background: #69AE96; /* Safari */
+    color: #fff;
+}
+::-moz-selection {
+    background: #69AE96; /* Safari */
+    color: #fff;
+}
 
 body {
     min-width: 320px;
     overflow-x: hidden;
     margin: 0;
-    // font-family: 'Roboto-Regular', sans-serif;
-    // color: #000;
-    // background: #F3F1F6;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), #FFFFFF;
 }
 
 .no-scroll {
@@ -161,6 +160,66 @@ body {
     }
     @media screen and (min-width: $pc) {
         max-width: 1830px;
+    }
+}
+
+.title {
+    font-family: 'Italiana', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: $black;
+    font-size: 32px;
+    line-height: 34px;
+    @media screen and (min-width: $sm) {
+        font-size: 70px;
+        line-height: 82px;
+    }
+}
+.header {
+    z-index: 99;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transition: all 0.3s ease-in-out; 
+    &--fixed {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%), #FFFFFF;
+    }
+    @media screen and (min-width: $sm) {
+        padding: 30px 0;
+    }
+    @media screen and (min-width: $pc) {
+        padding: 36px 0;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        @media screen and (min-width: $sm) {
+            width: fit-content;
+        }
+    }
+    &__menu {
+        display: none;
+        align-items: center;
+        @media screen and (min-width: $sm) {
+            display: flex;
+        }
+        li {
+            padding: 0 26px;
+            a {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #A2A2A2;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    color: #1F1F1F;
+                }
+            }
+        }
     }
 }
 
@@ -334,3 +393,303 @@ body {
     }
 }
 
+.reviews {
+    padding-top: 120px;
+    position: relative;
+    &__title {
+        font-family: 'Italiana', sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        padding-bottom: 42px;
+        span {
+            color: #69AE96;
+        }
+        h3 {
+            width: fit-content;
+        }
+        @media screen and (min-width: $tb) {
+            font-size: 70px;
+            line-height: 82px;
+            padding-bottom: 62px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            width: 1170px;
+            margin: 0 auto;
+        }
+    }
+    &__slider {
+        overflow: hidden;
+        @media screen and (min-width: $tb) {
+            width: 570px !important;
+            margin: 0 auto;
+        }
+        @media screen and (min-width: $sm) {
+            width: 1170px !important;
+        }
+    }
+    &__pag {
+        bottom: -50px !important;
+        span {
+            background-color: #69AE96;
+        }
+    }
+    &__item {
+        background-color: $bg;
+        border-radius: 10px;
+        padding: 15px;
+        @media screen and (min-width: $tb) {
+            width: 570px !important;
+        }
+        @media screen and (min-width: $sm) {
+            padding: 30px;
+            padding-right: 40px;
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 50px;
+            align-items: center;
+            row-gap: 20px;
+            width: 1170px !important;
+        }
+        &--img {
+            width: 100%;
+            height: 220px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            img, picture {
+                @extend %cover;
+                border-radius: 10px;
+            }
+            @media screen and (min-width: $tb) {
+                width: 550px;
+                height: 340px;
+            }
+            @media screen and (min-width: $sm) {
+                width: 550px;
+                height: 340px;
+                margin-bottom: unset;
+                grid-row: span 2;
+            }
+            @media screen and (min-width: $pc) {
+                width: 550px;
+                height: 340px;
+            }
+        }
+        &--text {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #1F1F1F;
+            padding-bottom: 20px;
+            @media screen and (min-width: $sm) {
+                padding-bottom: unset;
+                margin-top: auto;
+            }
+        }
+        &--title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5;
+            padding-bottom: 5px;
+        }
+        &--subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        &--content {
+            @media screen and (min-width: $sm) {
+                margin-bottom: auto;
+            }
+            @media screen and (min-width: $pc) {
+                width: 348px;
+            }
+        }
+    }
+    &__nav {
+        display: none;
+        width: fit-content;
+        @media screen and (min-width: $sm) {
+            display: flex;
+        }
+    }
+    &__next, &__prev {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: #FFFFFF;
+        border: 1px solid #E7E7E7;
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        svg path {
+            fill: #000;
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+            background-color: #69AE96;
+            svg path {
+                fill: #fff;
+            }
+        }
+    }
+    &__prev {
+        margin-right: 10px;
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+}
+
+.contacts {
+    margin-top: 120px;
+    background-color: $bg;
+    padding: 60px  0;
+    @media screen and (min-width: $sm) {
+        padding: 84px 0;
+        padding-top: 90px;
+    }
+    @media screen and (min-width: $sm) {
+        padding: 114px 0;
+        padding-top: 120px;
+    }
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: $tb) {
+            width: fit-content;
+            margin: 0 auto;
+        }
+        @media screen and (min-width: $sm) {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            justify-content: center;
+            column-gap: 90px;
+        }
+        @media screen and (min-width: $pc) {
+            column-gap: 190px;
+        }
+    }
+    &__title {
+        width: fit-content;
+
+    }
+    &__form {
+        margin-top: 40px;
+        @media screen and (min-width: $tb) {
+            width: 570px;
+        }
+        @media screen and (min-width: $sm) {
+            grid-row: span 2;
+            margin-top: unset;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        input, textarea {
+            margin-bottom: 16px;
+            background: #FFF;
+            border: 1px solid #C9CCD4;
+            border-radius: 6px;
+            padding: 18px 24px;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            width: 100%;
+        }
+        textarea {
+            margin-bottom: unset;
+            resize: none;
+        }
+        button {
+            width: 288px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 30px;
+            margin-right: auto;
+        }
+    }
+    &__links {
+        font-family: 'Montserrat';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #1F1F1F;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+        margin-top: 50px;
+        a {
+            color: #69AE96;
+            text-decoration-line: underline;
+        }
+        @media screen and (min-width: $sm) {
+            margin-top: auto;
+        }
+    }
+}
+
+.footer {
+    padding-top: 105px;
+    padding-bottom: 100px;
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        @media screen and (min-width: $tb) {
+            flex-wrap: nowrap;
+        }
+        li {
+            margin-bottom: 20px;
+            @media screen and (min-width: $tb) {
+                margin-bottom: unset;
+            }
+            a {
+                padding: 0 26px;
+                font-size: 16px;
+                line-height: 20px;
+                font-family: 'Montserrat', sans-serif;
+                color: $black;
+                font-weight: 300;
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    &__copyright {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.5;
+        color: $black;
+        opacity: 0.5;
+        margin-top: 40px;
+    }
+}
