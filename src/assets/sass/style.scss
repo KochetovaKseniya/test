@@ -1,0 +1,153 @@
+@import 'vars';
+
+/* reset START */
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box !important;
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    cursor: default;
+}
+
+span {
+    cursor: default;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1;
+    @media screen and (min-width: $pc) {
+        font-size: 50px;
+    }
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 25px;
+    @media screen and (min-width: $pc) {
+        font-size: 40px;
+        line-height: 53px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    &:active {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none !important;
+    }
+    span {
+        cursor: pointer;
+    }
+}
+
+ol, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button, input, textarea {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    font-family: inherit;
+    font-size: inherit;
+}
+button, input[type="submit"] {
+    cursor: pointer;
+}
+
+button span {
+    cursor: pointer;
+}
+button:disabled span {
+    cursor: default;
+}
+
+hr {
+    margin: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+// ::selection {
+//     background: $green; /* Safari */
+//     color: #fff;
+// }
+// ::-moz-selection {
+//     background: $green; /* Safari */
+//     color: #fff;
+// }
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+    margin: 0;
+    // font-family: 'Roboto-Regular', sans-serif;
+    // color: #000;
+    // background: #F3F1F6;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.body-wrapper {
+    position: relative;
+    overflow: hidden !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+}
+
+/* reset END */
+@media screen and (min-width: $pc) {
+    html:not(.no-js) [data-aos=fade-up] {
+        transform: translate3d(0,30px,0);
+    }
+}
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #F3F1F6;
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+    @media screen and (min-width: $sm) {
+        max-width: 1200px;
+    }
+    @media screen and (min-width: $pc) {
+        max-width: 1830px;
+    }
+}
