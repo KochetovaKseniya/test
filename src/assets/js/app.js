@@ -41,4 +41,16 @@ $(window).ready(() => {
         scroll = currentScroll;
     });
 
+    $('.main__btn').on('click', function () {
+        let elem = $(this).attr('href'),
+        target = $(elem).offset().top;
+        $('html, body').animate({ scrollTop: target }, 1100);
+    });
+
+    $('.contacts__form button').on('click', function () {
+        if( $('.form').hasClass('invalid') ) {
+            $('.wpcf7-response-output').css('display', 'none');
+        }
+    });
+
 });
