@@ -12,23 +12,23 @@ $(window).ready(() => {
     //     });
     }, 300);
 
-    const header = $('.header');
-    let scroll = 200;
-    $(window).on('scroll', function () {
-        currentScroll = $(window).scrollTop();
-        if (currentScroll > scroll && currentScroll > 50) {
-            if( !$('.menu').hasClass('active')) {
-                header.css('transform', 'translateY(-100%)');
-            }
-        } else if (currentScroll <= 50) {
-            header.css('transform', 'translateY(0)');
-            header.removeClass('header--fixed');
-        } else {
-            header.css('transform', 'translateY(0)');
-            header.addClass('header--fixed');
-        }
-        scroll = currentScroll;
-    });
+    // const header = $('.header');
+    // let scroll = 200;
+    // $(window).on('scroll', function () {
+    //     currentScroll = $(window).scrollTop();
+    //     if (currentScroll > scroll && currentScroll > 50) {
+    //         if( !$('.menu').hasClass('active')) {
+    //             header.css('transform', 'translateY(-100%)');
+    //         }
+    //     } else if (currentScroll <= 50) {
+    //         header.css('transform', 'translateY(0)');
+    //         header.removeClass('header--fixed');
+    //     } else {
+    //         header.css('transform', 'translateY(0)');
+    //         header.addClass('header--fixed');
+    //     }
+    //     scroll = currentScroll;
+    // });
 
     // // header menu
     // const menu = $('.menu'),
@@ -50,36 +50,4 @@ $(window).ready(() => {
     //     }
     // });
 
-
-    var galleryThumbs = new Swiper('.slider__review', {
-        spaceBetween: 10,
-        slidesPerView: 1,
-        freeMode: true,
-        watchSlidesProgress: true,
-        speed: 800,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
-    });
-    var galleryTop = new Swiper('.slider__gallery', {
-        spaceBetween: 10,
-        slidesPerView: 3,
-        centeredSlides: true,
-        speed: 800,
-        navigation: {
-            nextEl: '.slider__next',
-            prevEl: '.slider__prev',
-        },
-        thumbs: {
-            swiper: galleryThumbs
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 56
-            },
-        }
-    });
-    galleryTop.slideTo(1, 800);
 });
