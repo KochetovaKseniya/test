@@ -47,10 +47,39 @@ $(window).ready(() => {
         $('html, body').animate({ scrollTop: target }, 1100);
     });
 
-    $('.contacts__form button').on('click', function () {
-        if( $('.form').hasClass('invalid') ) {
-            $('.wpcf7-response-output').css('display', 'none');
+    $('.header__menu li').on('mouseenter click', function () {
+        $(this).find('.sub-menu').fadeIn();
+    });
+    $('.sub-menu').on('mouseleave click', function () {
+        $('.sub-menu').fadeOut();
+    });
+    
+    // email validation
+    var mailv = 0;
+    var mail = $('[name="mail"]');
+    var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    mail.bind("change paste keyup", function () {
+        if (mail.val() != '') {
+            if (mail.val().search(pattern) == 0) {
+                $(mail).removeClass('error');
+                return mailv = 1;
+            } else {
+                $(mail).addClass('error');
+                return mailv = 0;
+            }
+        } else {
+            return mailv = 0;
         }
     });
+
+
+    document.addEventListener( 'wpcf7mailsent', function( event ) {
+        var id = event.detail.contactFormId;
+        btn.addClass('disabled');
+        name.addClass('disabled');
+        mail.addClass('disabled');
+        text.addClass('disabled');
+        console.log('submit')
+    }, false );
 
 });
