@@ -41,6 +41,24 @@ $(window).ready(() => {
         scroll = currentScroll;
     });
 
+    const menu = $('.menu'),
+    burger = $('.header__burger');
+    burger.on('click', function () {
+        if($(this).hasClass('active')) {
+            menu.removeClass('active');
+            $(this).removeClass('active');
+            $('body').removeClass('no-scroll');
+            $('html').removeClass('no-scroll');
+        } else {
+            menu.addClass('active');
+            $(this).addClass('active');
+            header.removeClass('header--fixed');
+            $('body').addClass('no-scroll');
+            $('html').addClass('no-scroll');
+        }
+    });
+    
+    
     $('.main__btn').on('click', function () {
         let elem = $(this).attr('href'),
         target = $(elem).offset().top;
@@ -49,9 +67,16 @@ $(window).ready(() => {
 
     $('.header__menu li').on('mouseenter click', function () {
         $(this).find('.sub-menu').fadeIn();
+        if($(this).find('.sub-menu')) {
+            $(this).addClass('hover');
+        }
+    });
+    $('.header__menu li').on('mouseleave', function() {
+        $(this).removeClass('hover');
     });
     $('.sub-menu').on('mouseleave click', function () {
         $('.sub-menu').fadeOut();
+        $(this).parent().removeClass('hover');
     });
     
     // email validation
