@@ -100,10 +100,10 @@ $(window).ready(() => {
 
     document.addEventListener( 'wpcf7mailsent', function( event ) {
         var id = event.detail.contactFormId;
-        btn.addClass('disabled');
-        name.addClass('disabled');
-        mail.addClass('disabled');
-        text.addClass('disabled');
+        $('.contacts__form--btn').addClass('disabled');
+        $('[name="name"]').addClass('disabled');
+        $('[name="mail"]').addClass('disabled');
+        $('textarea').addClass('disabled');
         console.log('submit')
     }, false );
 
